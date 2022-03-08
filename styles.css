@@ -7,6 +7,9 @@
     width: 960px;
     height: 960px;
     margin: 100px auto;
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: auto;
 }
 .boxStyle {
     border: 1px solid black;
