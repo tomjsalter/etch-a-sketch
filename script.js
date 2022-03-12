@@ -1,6 +1,6 @@
 const gridContainer = document.getElementById("grid-container");
 gridContainer.style.display = "grid";
-gridContainer.style.height = "960px";
-gridContainer.style.width = "960px";
-gridContainer.style.gridTemplateColumns = "auto auto";
-gridContainer.style.gridTemplateRows = "auto auto";
+gridContainer.style.height = "900px";
+gridContainer.style.width = "900px";
+gridContainer.style.gridTemplateColumns = "repeat(16, 1fr)";
+gridContainer.style.gridTemplateRows = "repeat(16, 1fr)";
