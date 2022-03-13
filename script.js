@@ -1,6 +1,13 @@
 const gridContainer = document.getElementById("grid-container");
-gridContainer.style.display = "grid";
-gridContainer.style.height = "960px";
-gridContainer.style.width = "960px";
-gridContainer.style.gridTemplateColumns = "auto auto";
-gridContainer.style.gridTemplateRows = "auto auto";
+let gridNum = "16";
+gridContainer.style.gridTemplateColumns = `repeat(${gridNum}, 1fr)`;
+gridContainer.style.gridTemplateRows = `repeat(${gridNum}, 1fr)`;
+
+function populateGrid() {
+    let totalNum = parseInt(gridNum);
+    totalNum = totalNum * totalNum;
+    for (let i = 0; i < totalNum; i++) {
+        gridContainer.appendChild(document.createElement("div"));
+    }
+}
+populateGrid();
