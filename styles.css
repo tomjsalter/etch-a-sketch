@@ -4,5 +4,12 @@
     padding: 0;
 }
 div {
-    border: solid 1px black;
+    border: solid 0.25px rgba(0, 0, 0, 0.25);
+}
+
+#grid-container {
+    margin: 100px auto;
+    display: grid;
+    height: 700px;
+    width: 700px;
 }
