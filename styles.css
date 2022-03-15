@@ -11,9 +11,23 @@ div {
     background-color: black;
 }
 
-#grid-container {
+.grid {
+    display: flex;
+    flex-wrap: wrap;
     margin: 100px auto;
+    max-width: 960px;
+    justify-content: space-between;
+}
+
+.grid-nav {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    justify-content: space-between;
+}
+
+#grid-container {
     display: grid;
-    height: 700px;
-    width: 700px;
+    height: 600px;
+    width: 600px;
 }
