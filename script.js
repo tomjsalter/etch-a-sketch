@@ -7,7 +7,11 @@ function populateGrid() {
     let totalNum = parseInt(gridNum);
     totalNum = totalNum * totalNum;
     for (let i = 0; i < totalNum; i++) {
-        gridContainer.appendChild(document.createElement("div"));
+        const gridItem = document.createElement("div");
+        gridItem.addEventListener('mouseenter', () => {
+            gridItem.classList.add("bgDiv");
+        });
+        gridContainer.appendChild(gridItem);
     }
 }
-populateGrid();
+populateGrid(); 
