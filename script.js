@@ -13,9 +13,9 @@ function populateGrid() {
   gridContainer.style.gridTemplateColumns = `repeat(${gridNum}, 1fr)`;
   gridContainer.style.gridTemplateRows = `repeat(${gridNum}, 1fr)`;
   for (let i = 0; i < totalNum; i++) {
-    const gridItem = document.createElement("div");
+    let gridItem = document.createElement("div");
     gridItem.addEventListener("mouseenter", () => {
-      gridItem.classList.add("bgDiv");
+    gridItem.classList.add("blackBg");
     });
     gridContainer.appendChild(gridItem);
   }
@@ -27,5 +27,8 @@ startBtn.addEventListener('click', () => {
 });
 
 clearBtn.addEventListener('click', () => {
-  gridItem.classList.remove("bgDiv");
+  for (let i = 0; i < gridContainer.children.length; i++) {
+    const containerChild = gridContainer.children[i];
+    containerChild.style.backgroundColor = "transparent";
+  }
 });
