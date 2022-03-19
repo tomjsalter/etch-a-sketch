@@ -1,5 +1,5 @@
 const gridContainer = document.getElementById("grid-container");
-let gridNum = "16";
+let gridNum;
 gridContainer.style.gridTemplateColumns = `repeat(${gridNum}, 1fr)`;
 gridContainer.style.gridTemplateRows = `repeat(${gridNum}, 1fr)`;
 
@@ -14,4 +14,3 @@ function populateGrid() {
     gridContainer.appendChild(gridItem);
   }
 }
-populateGrid();
