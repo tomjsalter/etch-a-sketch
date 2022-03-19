@@ -1,6 +1,6 @@
 const gridContainer = document.getElementById("grid-container");
 const startBtn = document.querySelector(".start");
-const resetBtn = document.querySelector(".reset");
+const clearBtn = document.querySelector(".clear");
 const blackBtn = document.querySelector(".black");
 const whiteBtn = document.querySelector(".white");
 const randomBtn = document.querySelector(".random");
@@ -24,4 +24,8 @@ function populateGrid() {
 startBtn.addEventListener('click', () => {
   gridNum = prompt("Choose a number. Maximum 100");
   populateGrid();
+});
+
+clearBtn.addEventListener('click', () => {
+  gridItem.classList.remove("bgDiv");
 });
