@@ -59,3 +59,12 @@ randomBtn.addEventListener("click", () => {
     })
   }
 });
+
+percentBtn.addEventListener("click", () => {
+  for (let i = 0; i < gridContainer.children.length; i++) {
+    const applyPercent = gridContainer.children[i];
+    applyPercent.addEventListener("mouseenter", () => {
+      applyPercent.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+    });
+  }
+});
