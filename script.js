@@ -52,7 +52,10 @@ randomBtn.addEventListener("click", () => {
   for (let i = 0; i < gridContainer.children.length; i++) {
     const applyRandom = gridContainer.children[i];
     applyRandom.addEventListener("mouseenter", () => {
-
+      let red = Math.floor(Math.random() * 255);
+      let green = Math.floor(Math.random() * 255);
+      let blue = Math.floor(Math.random() * 255);
+      applyRandom.style.backgroundColor = `rgb(${red},${green},${blue})`;
     })
   }
 });
