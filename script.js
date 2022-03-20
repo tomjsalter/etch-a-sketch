@@ -15,7 +15,7 @@ function populateGrid() {
   for (let i = 0; i < totalNum; i++) {
     let gridItem = document.createElement("div");
     gridItem.addEventListener("mouseenter", () => {
-    gridItem.classList.add("blackBg");
+    gridItem.style.backgroundColor = "black";
     });
     gridContainer.appendChild(gridItem);
   }
@@ -30,5 +30,14 @@ clearBtn.addEventListener('click', () => {
   for (let i = 0; i < gridContainer.children.length; i++) {
     const containerChild = gridContainer.children[i];
     containerChild.style.backgroundColor = "transparent";
+  }
+});
+
+blackBtn.addEventListener('click', () => {
+  for (let i = 0; i < gridContainer.children.length; i++) {
+    const applyBlack = gridContainer.children[i];
+    applyBlack.addEventListener("mouseenter", () => {
+      applyBlack.style.backgroundColor = "black";
+    })
   }
 });
