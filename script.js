@@ -8,6 +8,9 @@ const percentBtn = document.querySelector(".percent");
 let gridNum;
 
 startBtn.addEventListener("click", () => {
+  while (gridContainer.firstChild) {
+    gridContainer.removeChild(gridContainer.firstChild);
+  }
   gridNum = prompt("Choose a number. Maximum 100");
   populateGrid();
 });
@@ -57,5 +60,14 @@ randomBtn.addEventListener("click", () => {
       let blue = Math.floor(Math.random() * 255);
       applyRandom.style.backgroundColor = `rgb(${red},${green},${blue})`;
     })
+  }
+});
+
+percentBtn.addEventListener("click", () => {
+  for (let i = 0; i < gridContainer.children.length; i++) {
+    const applyPercent = gridContainer.children[i];
+    applyPercent.addEventListener("mouseenter", () => {
+      applyPercent.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+    });
   }
 });
