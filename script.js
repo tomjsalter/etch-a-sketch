@@ -8,6 +8,9 @@ const percentBtn = document.querySelector(".percent");
 let gridNum;
 
 startBtn.addEventListener("click", () => {
+  while (gridContainer.firstChild) {
+    gridContainer.removeChild(gridContainer.firstChild);
+  }
   gridNum = prompt("Choose a number. Maximum 100");
   populateGrid();
 });
