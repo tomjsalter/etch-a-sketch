@@ -12,8 +12,8 @@ startBtn.addEventListener("click", () => {
     gridContainer.removeChild(gridContainer.firstChild);
   }
   gridNum = prompt("Choose a number. Maximum 100");
-  if (gridNum > 100) {
-    alert("Please enter a number no more than 100");
+  if (gridNum > 100 || gridNum < 0) {
+    alert("Please enter a number between 1 and 100");
   } else {
     populateGrid();
   }
