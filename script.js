@@ -5,6 +5,7 @@ const blackBtn = document.querySelector(".black");
 const whiteBtn = document.querySelector(".white");
 const randomBtn = document.querySelector(".random");
 const percentBtn = document.querySelector(".percent");
+let opacity = document.querySelector('[data-opacity="1"]');
 let gridNum;
 
 startBtn.addEventListener("click", () => {
