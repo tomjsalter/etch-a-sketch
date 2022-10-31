@@ -1,8 +1,3 @@
 const gridContainer = document.querySelector("#grid-container");
-function setGrid() {
-    for (let i = 0; i < 16; i++) {
-        const gridItem = document.createElement("div");
-        gridItem.style.backgroundColor = "black";
-        gridContainer.appendChild(gridItem);
-    }
-}
+gridContainer.style.gridTemplateColumns = "repeat(16, 1fr)";
+gridContainer.style.gridTemplateRows = "repeat(16, 1fr)";
