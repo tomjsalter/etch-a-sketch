@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+#grid-container {
+    width: 700px;
+    height: 700px;
+    display: grid;
+}
+
+.standard-grid {
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+}
