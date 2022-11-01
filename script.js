@@ -23,16 +23,30 @@ gridItems.forEach((item) => {
 });
 
 function generateGrid() {
-  let gridNum = prompt('Choose a number', 'Maximum of 100');
+  let gridNum = prompt("Choose a number", "Maximum of 100");
+  let loopCount = gridNum * gridNum;
   if (gridNum > 100) {
-    alert('Number choice must be below 100');
+    alert("Number choice must be below 100");
   } else {
     gridContainer.style.gridTemplateColumns = `repeat(${gridNum}, 1fr)`;
     gridContainer.style.gridTemplateRows = `repeat(${gridNum}, 1fr)`;
+    for (let i = 0; i < loopCount; i++) {
+      const gridSquare = document.createElement("div");
+      gridSquare.classList.add("white-bg");
+      gridContainer.appendChild(gridSquare);
+    }
+    let gridItems = gridContainer.querySelectorAll("div");
+    gridItems = Array.from(gridItems);
+    gridItems.forEach((item) => {
+      item.addEventListener("mouseover", function () {
+        item.classList.remove("white-bg");
+        item.classList.add("black-bg");
+      });
+    });
   }
 }
 
-generateBtn.addEventListener("click", function(){
+generateBtn.addEventListener("click", function () {
   generateGrid();
 });
 
