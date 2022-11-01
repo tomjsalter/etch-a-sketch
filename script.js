@@ -27,6 +27,14 @@ function generateGrid() {
   if (gridNum > 100) {
     alert('Number choice must be below 100');
   } else {
-    
+    gridContainer.style.gridTemplateColumns = `repeat(${gridNum}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${gridNum}, 1fr)`;
   }
 }
+
+generateBtn.addEventListener("click", function(){
+  generateGrid();
+});
+
+// calculate total number of divs needed for loop - gridNum * gridNum
+// add for loop to append divs into new grid
