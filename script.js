@@ -4,25 +4,33 @@ const gridContainer = document.querySelector("#grid-container");
 gridContainer.style.backgroundColor = "black";
 gridContainer.style.gap = "1px";
 gridContainer.style.border = "solid 1px black";
-gridContainer.style.gridTemplateColumns = "repeat(16, 1fr)";
-gridContainer.style.gridTemplateRows = "repeat(16, 1fr)";
 
-for (let i = 0; i < 256; i++) {
-  const gridSquare = document.createElement("div");
-  gridSquare.classList.add("white-bg");
-  gridContainer.appendChild(gridSquare);
+function startGrid() {
+  gridContainer.style.gridTemplateColumns = "repeat(16, 1fr)";
+  gridContainer.style.gridTemplateRows = "repeat(16, 1fr)";
+  for (let i = 0; i < 256; i++) {
+    const gridSquare = document.createElement("div");
+    gridSquare.classList.add("white-bg");
+    gridContainer.appendChild(gridSquare);
+  }
+  populateGrid();
 }
 
-let gridItems = gridContainer.querySelectorAll("div");
-gridItems = Array.from(gridItems);
-gridItems.forEach((item) => {
-  item.addEventListener("mouseover", function () {
-    item.classList.remove("white-bg");
-    item.classList.add("black-bg");
+function populateGrid() {
+  let gridItems = gridContainer.querySelectorAll("div");
+  gridItems = Array.from(gridItems);
+  gridItems.forEach((item) => {
+    item.addEventListener("mouseover", function () {
+      item.classList.remove("white-bg");
+      item.classList.add("black-bg");
+    });
   });
-});
+}
 
 function generateGrid() {
+  while (gridContainer.firstChild) {
+    gridContainer.removeChild(gridContainer.firstChild);
+  }
   let gridNum = prompt("Choose a number", "Maximum of 100");
   let loopCount = gridNum * gridNum;
   if (gridNum > 100) {
@@ -35,14 +43,7 @@ function generateGrid() {
       gridSquare.classList.add("white-bg");
       gridContainer.appendChild(gridSquare);
     }
-    let gridItems = gridContainer.querySelectorAll("div");
-    gridItems = Array.from(gridItems);
-    gridItems.forEach((item) => {
-      item.addEventListener("mouseover", function () {
-        item.classList.remove("white-bg");
-        item.classList.add("black-bg");
-      });
-    });
+    populateGrid();
   }
 }
 
@@ -50,5 +51,4 @@ generateBtn.addEventListener("click", function () {
   generateGrid();
 });
 
-// calculate total number of divs needed for loop - gridNum * gridNum
-// add for loop to append divs into new grid
+startGrid();
