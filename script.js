@@ -13,3 +13,9 @@ for (let i = 0; i < 256; i++) {
 
 let gridItems = gridContainer.querySelectorAll("div");
 gridItems = Array.from(gridItems);
+gridItems.forEach((item) => {
+  item.addEventListener("mouseover", function() {
+    item.classList.remove("white-bg");
+    item.classList.add("black-bg");
+  });
+});
