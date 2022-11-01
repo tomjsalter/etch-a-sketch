@@ -8,6 +8,14 @@
     display: grid;
 }
 
+.btn-menu {
+    margin-bottom: 30px;
+}
+
+.btn-menu, button {
+    margin-right: 10px;
+}
+
 .white-bg {
     background-color: white;
 }
