@@ -4,6 +4,7 @@ const removeBtn = document.querySelector("#remove-btn");
 const gridContainer = document.querySelector("#grid-container");
 const blackBtn = document.querySelector("#black-btn");
 const randomBtn = document.querySelector("#random-btn");
+gridContainer.style.backgroundColor = "black";
 gridContainer.style.gap = "1px";
 gridContainer.style.border = "solid 1px black";
 
@@ -69,7 +70,6 @@ function randomColorPixel() {
   gridItems.forEach((item) => {
     item.addEventListener("mouseover", function () {
       item.className = "";
-      item.style.backgroundColor = "";
       let rColor = Math.floor(Math.random() * 256);
       let gColor = Math.floor(Math.random() * 256);
       let bColor = Math.floor(Math.random() * 256);
@@ -88,22 +88,18 @@ generateBtn.addEventListener("click", function () {
   generateGrid();
 });
 
-blackBtn.addEventListener("click", function() {
+blackBtn.addEventListener("click", function () {
   blackPixel();
 });
 
-randomBtn.addEventListener("click", function() {
+randomBtn.addEventListener("click", function () {
   randomColorPixel();
 });
 
-shadingBtn.addEventListener("click", function() {
-  shadeBlack();
-});
-
-removeBtn.addEventListener("click", function() {
+removeBtn.addEventListener("click", function () {
   removePixel();
 });
 
-resetBtn.addEventListener("click", function() {
+resetBtn.addEventListener("click", function () {
   startGrid();
 });
