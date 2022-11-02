@@ -1,13 +1,14 @@
 const generateBtn = document.querySelector("#generate-grid");
-const randomBtn = document.querySelector("#random-btn");
-const shadingBtn = document.querySelector("#shading-btn");
-const clearBtn = document.querySelector("#clear-btn");
 const resetBtn = document.querySelector("#reset-btn");
+const removeBtn = document.querySelector("#remove-btn");
 const gridContainer = document.querySelector("#grid-container");
 gridContainer.style.backgroundColor = "black";
 gridContainer.style.gap = "1px";
 gridContainer.style.border = "solid 1px black";
 
+startGrid();
+
+// Load page with standard 16 x 16 grid
 function startGrid() {
   resetGrid();
   gridContainer.style.gridTemplateColumns = "repeat(16, 1fr)";
@@ -17,9 +18,10 @@ function startGrid() {
     gridSquare.classList.add("white-bg");
     gridContainer.appendChild(gridSquare);
   }
-  populateGrid();
+  blackPixel();
 }
 
+// Creates CSS Grid structure with white background divs
 function generateGrid() {
   resetGrid();
   let gridNum = prompt("Choose a number");
@@ -34,24 +36,31 @@ function generateGrid() {
       gridSquare.classList.add("white-bg");
       gridContainer.appendChild(gridSquare);
     }
-    populateGrid();
+    blackPixel();
   }
 }
 
-function populateGrid() {
+function blackPixel() {
   let gridItems = gridContainer.querySelectorAll("div");
   gridItems = Array.from(gridItems);
   gridItems.forEach((item) => {
     item.addEventListener("mouseover", function () {
-      // if...else in populateGrid() function
-      // check what #id value is associated with button clicked
-      // apply classList depending on button (random color, shading)
-      item.classList.remove("white-bg");
+      item.className = "";
       item.classList.add("black-bg");
     });
   });
 }
 
+function removePixel() {
+  let gridItems = gridContainer.querySelectorAll("div");
+  gridItems = Array.from(gridItems);
+  gridItems.forEach((item) => {
+    item.addEventListener("mouseover", function () {
+      item.className = "";
+      item.classList.add("white-bg");
+    });
+  });
+}
 
 function resetGrid() {
   while (gridContainer.firstChild) {
@@ -63,8 +72,10 @@ generateBtn.addEventListener("click", function () {
   generateGrid();
 });
 
+removeBtn.addEventListener("click", function() {
+  removePixel();
+});
+
 resetBtn.addEventListener("click", function() {
   startGrid();
 });
-
-startGrid();
