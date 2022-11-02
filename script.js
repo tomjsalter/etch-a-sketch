@@ -4,7 +4,6 @@ const removeBtn = document.querySelector("#remove-btn");
 const gridContainer = document.querySelector("#grid-container");
 const blackBtn = document.querySelector("#black-btn");
 const randomBtn = document.querySelector("#random-btn");
-const shadingBtn = document.querySelector("#shading-btn");
 gridContainer.style.gap = "1px";
 gridContainer.style.border = "solid 1px black";
 
@@ -70,22 +69,11 @@ function randomColorPixel() {
   gridItems.forEach((item) => {
     item.addEventListener("mouseover", function () {
       item.className = "";
+      item.style.backgroundColor = "";
       let rColor = Math.floor(Math.random() * 256);
       let gColor = Math.floor(Math.random() * 256);
       let bColor = Math.floor(Math.random() * 256);
       item.style.backgroundColor = `rgb(${rColor}, ${gColor}, ${bColor})`;
-    });
-  });
-}
-
-function shadeBlack() {
-  let gridItems = gridContainer.querySelectorAll("div");
-  gridItems = Array.from(gridItems);
-  gridItems.forEach((item) => {
-    item.className = "";
-    item.style.backgroundColor = "";
-    item.addEventListener("mouseover", function () {
-      item.style.backgroundColor = "rgba(0, 0, 0, .1)";
     });
   });
 }
