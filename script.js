@@ -2,13 +2,14 @@ const generateBtn = document.querySelector("#generate-grid");
 const resetBtn = document.querySelector("#reset-btn");
 const removeBtn = document.querySelector("#remove-btn");
 const gridContainer = document.querySelector("#grid-container");
+const blackBtn = document.querySelector("#black-btn");
+const randomBtn = document.querySelector("#random-btn");
 gridContainer.style.backgroundColor = "black";
 gridContainer.style.gap = "1px";
 gridContainer.style.border = "solid 1px black";
 
 startGrid();
 
-// Load page with standard 16 x 16 grid
 function startGrid() {
   resetGrid();
   gridContainer.style.gridTemplateColumns = "repeat(16, 1fr)";
@@ -21,7 +22,6 @@ function startGrid() {
   blackPixel();
 }
 
-// Creates CSS Grid structure with white background divs
 function generateGrid() {
   resetGrid();
   let gridNum = prompt("Choose a number");
@@ -62,6 +62,20 @@ function removePixel() {
   });
 }
 
+function randomColorPixel() {
+  let gridItems = gridContainer.querySelectorAll("div");
+  gridItems = Array.from(gridItems);
+  gridItems.forEach((item) => {
+    item.addEventListener("mouseover", function () {
+      item.className = "";
+      let rColor = Math.floor(Math.random() * 256);
+      let gColor = Math.floor(Math.random() * 256);
+      let bColor = Math.floor(Math.random() * 256);
+      item.style.backgroundColor = `rgb(${rColor}, ${gColor}, ${bColor})`;
+    });
+  });
+}
+
 function resetGrid() {
   while (gridContainer.firstChild) {
     gridContainer.removeChild(gridContainer.firstChild);
@@ -70,6 +84,14 @@ function resetGrid() {
 
 generateBtn.addEventListener("click", function () {
   generateGrid();
+});
+
+blackBtn.addEventListener("click", function() {
+  blackPixel();
+});
+
+randomBtn.addEventListener("click", function() {
+  randomColorPixel();
 });
 
 removeBtn.addEventListener("click", function() {
